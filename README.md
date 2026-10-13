@@ -31,6 +31,7 @@ It captures PC audio, runs it through a 16-band EQ → 3D spatializer → peak l
 - [BeamNG setup](#beamng-setup)
 - [Prerequisites](#prerequisites)
 - [Build & run](#build--run)
+- [BeamNG mod scripts (lua/)](#beamng-mod-scripts-lua)
 - [Project structure](#project-structure)
 - [Threading & performance notes](#threading--performance-notes)
 - [Troubleshooting](#troubleshooting)
@@ -379,12 +380,65 @@ Bump `opt-level = 3` + `lto = true` if you want max runtime DSP performance at t
 
 ---
 
+## BeamNG mod scripts (lua/)
+
+The `lua/` folder is the **in-game side** of the project: a BeamNG.drive mod script tree (mirrors the `bbc_stereo` unpacked mod layout) that streams telemetry out and renders screens/media inside the vehicle. It is the counterpart to the desktop app's UDP listener (`beamng_udp.rs` / `electrics.rs`) and Opera stream snapshots.
+
+```
+lua/
+├── ge/extensions/                # game-engine (global) extensions
+│   ├── cameraOutgaugeGE.lua      # packs + sends camera/vehicle telemetry (OutGauge-style)
+│   ├── ampSimGE.lua              # amplifier simulation state on the GE side
+│   ├── bbcWsFeed.lua             # WebSocket feed bridge
+│   ├── subwooferWsGE.lua         # subwoofer WebSocket bridge
+│   ├── bbcMusicBridge.lua        # music/media bridge
+│   ├── mediaBridgeGE.lua         # media session bridge (now-playing data)
+│   ├── mediaInfoGE.lua           # media info provider
+│   ├── screenService.lua         # screen/texture service (drives in-car displays)
+│   ├── screenTuner.lua           # screen tuning/calibration logic
+│   ├── screenCalibration.lua     # display calibration helpers
+│   ├── speakerCalibration.lua    # speaker position calibration helpers
+│   ├── lightingCalibration.lua   # lighting calibration helpers
+│   ├── lightingPropsEditor.lua   # lighting props editor
+│   ├── lnequMaps.lua             # EQ map data
+│   └── core/input/actions/       # input action + node bindings (JSON)
+│       ├── bbc_screen_keys.json
+│       ├── bbc_lighting_props.json
+│       ├── bbc_media_nodes.json
+│       ├── bbc_stereo_nodes.json
+│       ├── bbc_universal_screen.json
+│       └── screenTuner.json
+└── vehicle/                      # vehicle-local (per-car) scripts
+    ├── controller/
+    │   ├── bbcAmpConfig.lua      # amp configuration
+    │   ├── bbcAmpTuner.lua       # amp tuning
+    │   ├── lightingController.lua# in-car lighting controller
+    │   ├── newScreen.lua         # screen controller
+    │   ├── screenInput.lua       # screen input handling
+    │   ├── subwooferControllerWs.lua  # subwoofer controller (WS)
+    │   ├── voltageSim.lua        # voltage simulation
+    │   ├── tv2.lua               # TV/media screen
+    │   ├── dkjson.lua            # bundled JSON library
+    │   └── customModules/
+    │       └── subwoofer.lua     # subwoofer custom module
+    ├── extensions/
+    │   ├── auto/cameraOutgauge.lua  # auto-loaded OutGauge sender
+    │   └── mediaInfo.lua            # vehicle media info
+    └── protocols/
+        └── outgaugePlus.lua      # extended OutGauge protocol (matches the app's 456 B parser)
+```
+
+**How it connects:** the vehicle/GE scripts send UDP telemetry (vehicle pos/quat, camera, electrics) that the desktop app's `beamng_udp.rs` parses to drive the 6-speaker spatializer; the app's Opera-stream JPEG snapshots are consumed back by the in-car screens via `screenService.lua` / `newScreen.lua` through `local://` files in the BeamNG mods folder. To use it, copy `lua/` into your unpacked mod (e.g. `.../mods/unpacked/bbc_stereo_0.6/lua`) or point your mod at this folder.
+
+---
+
 ## Project structure
 
 ```
 .
 ├── README.md
 ├── package.json                  # only devDep: @tauri-apps/cli
+├── lua/                          # BeamNG mod scripts (see section above)
 ├── src/                          # frontend (no npm runtime deps)
 │   ├── index.html                # panels: beamng/eq/settings/log/stats/amp/browser/stream
 │   ├── js/  3d-audio.js, ui.js, tauri-bridge.js, amp-panel.js,
