@@ -347,8 +347,8 @@ Invoke from JS via `window.__TAURI__.core.invoke('cmd_name', args)` (see `src/js
 
 ```bash
 # 0. Clone
-git clone https://github.com/BrokenBrainCells3/BrokenBrainCells-BeamNG-3D-audio-Simulation.git
-cd BrokenBrainCells-BeamNG-3D-audio-Simulation
+git clone https://github.com/BrokenBrainCells3/BBC-BeamNG-Audio-Suite.git
+cd BBC-BeamNG-Audio-Suite
 
 # 1. Frontend deps (only the Tauri CLI - the UI itself is dependency-free)
 npm install
@@ -498,4 +498,4 @@ lua/
 
 Private / MIT at the owner's discretion - see repository settings.
 
-**Author:** BrokenBrainCells3 - https://github.com/BrokenBrainCells3/BrokenBrainCells-BeamNG-3D-audio-Simulation
+**Author:** BrokenBrainCells3 - https://github.com/BrokenBrainCells3/BBC-BeamNG-Audio-Suite
