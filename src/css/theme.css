@@ -1,0 +1,54 @@
+/**
+ * Theme CSS - Theme color variables and presets
+ * Load this file after base.css
+ */
+
+/* ========================================
+   THEME COLOR PRESETS
+   Applied via data-color attribute on theme-preset buttons
+   ======================================== */
+
+.theme-preset[data-color="#58c2ff"] { background: linear-gradient(135deg, #58c2ff, #3da8e8); }
+.theme-preset[data-color="#ff6b6b"] { background: linear-gradient(135deg, #ff6b6b, #ee5a5a); }
+.theme-preset[data-color="#4ecdc4"] { background: linear-gradient(135deg, #4ecdc4, #3dbdb5); }
+.theme-preset[data-color="#f9d423"] { background: linear-gradient(135deg, #f9d423, #e5c318); }
+.theme-preset[data-color="#a8edea"] { background: linear-gradient(135deg, #a8edea, #94dbd8); }
+.theme-preset[data-color="#d4fc79"] { background: linear-gradient(135deg, #d4fc79, #c2e86a); }
+.theme-preset[data-color="#96e6a1"] { background: linear-gradient(135deg, #96e6a1, #84d490); }
+.theme-preset[data-color="#f093fb"] { background: linear-gradient(135deg, #f093fb, #e080eb); }
+.theme-preset[data-color="#8e2de2"] { background: linear-gradient(135deg, #8e2de2, #7a20c9); }
+.theme-preset[data-color="#fd746c"] { background: linear-gradient(135deg, #fd746c, #e9655d); }
+
+/* ========================================
+   BAND COLORS (for waveform displays)
+   ======================================== */
+
+:root {
+  --band-subwoofer: #ff6b6b;
+  --band-bass: #4ecdc4;
+  --band-mids: #f9d423;
+  --band-treble: #a8edea;
+}
+
+/* ========================================
+   STATUS INDICATOR COLORS
+   ======================================== */
+
+:root {
+  --status-connected: #44ff44;
+  --status-connecting: #ffaa00;
+  --status-error: #ff0000;
+  --status-offline: var(--text-secondary);
+}
+
+/* ========================================
+   SPEAKER COLORS (3D Audio)
+   ======================================== */
+
+:root {
+  --speaker-fl: #ff6b6b;
+  --speaker-fr: #4ecdc4;
+  --speaker-rl: #f9d423;
+  --speaker-rr: #a8edea;
+  --speaker-sub: #96e6a1;
+}

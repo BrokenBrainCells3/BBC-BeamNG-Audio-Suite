@@ -1,0 +1,12 @@
+[
+  {
+    "identifier": "core:event:default",
+    "permissions": [
+      "core:event:default",
+      "core:event:allow-emit",
+      "core:event:allow-emit-to",
+      "core:event:allow-listen",
+      "core:event:allow-unlisten"
+    ]
+  }
+]

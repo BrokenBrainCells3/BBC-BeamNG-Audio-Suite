@@ -1,0 +1,450 @@
+{
+  "bbc_key_a": {
+    "cat": "general", "order": 920, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyA', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyA', false) end",
+    "title": "BBC Screen Key: A",
+    "desc": "Forwards A to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_b": {
+    "cat": "general", "order": 921, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyB', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyB', false) end",
+    "title": "BBC Screen Key: B",
+    "desc": "Forwards B to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_c": {
+    "cat": "general", "order": 922, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyC', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyC', false) end",
+    "title": "BBC Screen Key: C",
+    "desc": "Forwards C to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_d": {
+    "cat": "general", "order": 923, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyD', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyD', false) end",
+    "title": "BBC Screen Key: D",
+    "desc": "Forwards D to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_e": {
+    "cat": "general", "order": 924, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyE', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyE', false) end",
+    "title": "BBC Screen Key: E",
+    "desc": "Forwards E to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_f": {
+    "cat": "general", "order": 925, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyF', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyF', false) end",
+    "title": "BBC Screen Key: F",
+    "desc": "Forwards F to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_g": {
+    "cat": "general", "order": 926, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyG', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyG', false) end",
+    "title": "BBC Screen Key: G",
+    "desc": "Forwards G to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_h": {
+    "cat": "general", "order": 927, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyH', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyH', false) end",
+    "title": "BBC Screen Key: H",
+    "desc": "Forwards H to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_i": {
+    "cat": "general", "order": 928, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyI', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyI', false) end",
+    "title": "BBC Screen Key: I",
+    "desc": "Forwards I to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_j": {
+    "cat": "general", "order": 929, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyJ', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyJ', false) end",
+    "title": "BBC Screen Key: J",
+    "desc": "Forwards J to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_k": {
+    "cat": "general", "order": 930, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyK', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyK', false) end",
+    "title": "BBC Screen Key: K",
+    "desc": "Forwards K to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_l": {
+    "cat": "general", "order": 931, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyL', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyL', false) end",
+    "title": "BBC Screen Key: L",
+    "desc": "Forwards L to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_m": {
+    "cat": "general", "order": 932, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyM', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyM', false) end",
+    "title": "BBC Screen Key: M",
+    "desc": "Forwards M to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_n": {
+    "cat": "general", "order": 933, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyN', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyN', false) end",
+    "title": "BBC Screen Key: N",
+    "desc": "Forwards N to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_o": {
+    "cat": "general", "order": 934, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyO', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyO', false) end",
+    "title": "BBC Screen Key: O",
+    "desc": "Forwards O to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_p": {
+    "cat": "general", "order": 935, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyP', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyP', false) end",
+    "title": "BBC Screen Key: P",
+    "desc": "Forwards P to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_q": {
+    "cat": "general", "order": 936, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyQ', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyQ', false) end",
+    "title": "BBC Screen Key: Q",
+    "desc": "Forwards Q to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_r": {
+    "cat": "general", "order": 937, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyR', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyR', false) end",
+    "title": "BBC Screen Key: R",
+    "desc": "Forwards R to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_s": {
+    "cat": "general", "order": 938, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyS', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyS', false) end",
+    "title": "BBC Screen Key: S",
+    "desc": "Forwards S to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_t": {
+    "cat": "general", "order": 939, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyT', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyT', false) end",
+    "title": "BBC Screen Key: T",
+    "desc": "Forwards T to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_u": {
+    "cat": "general", "order": 940, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyU', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyU', false) end",
+    "title": "BBC Screen Key: U",
+    "desc": "Forwards U to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_v": {
+    "cat": "general", "order": 941, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyV', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyV', false) end",
+    "title": "BBC Screen Key: V",
+    "desc": "Forwards V to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_w": {
+    "cat": "general", "order": 942, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyW', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyW', false) end",
+    "title": "BBC Screen Key: W",
+    "desc": "Forwards W to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_x": {
+    "cat": "general", "order": 943, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyX', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyX', false) end",
+    "title": "BBC Screen Key: X",
+    "desc": "Forwards X to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_y": {
+    "cat": "general", "order": 944, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyY', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyY', false) end",
+    "title": "BBC Screen Key: Y",
+    "desc": "Forwards Y to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_z": {
+    "cat": "general", "order": 945, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyZ', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('KeyZ', false) end",
+    "title": "BBC Screen Key: Z",
+    "desc": "Forwards Z to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_0": {
+    "cat": "general", "order": 946, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit0', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit0', false) end",
+    "title": "BBC Screen Key: 0",
+    "desc": "Forwards 0 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_1": {
+    "cat": "general", "order": 947, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit1', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit1', false) end",
+    "title": "BBC Screen Key: 1",
+    "desc": "Forwards 1 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_2": {
+    "cat": "general", "order": 948, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit2', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit2', false) end",
+    "title": "BBC Screen Key: 2",
+    "desc": "Forwards 2 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_3": {
+    "cat": "general", "order": 949, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit3', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit3', false) end",
+    "title": "BBC Screen Key: 3",
+    "desc": "Forwards 3 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_4": {
+    "cat": "general", "order": 950, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit4', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit4', false) end",
+    "title": "BBC Screen Key: 4",
+    "desc": "Forwards 4 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_5": {
+    "cat": "general", "order": 951, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit5', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit5', false) end",
+    "title": "BBC Screen Key: 5",
+    "desc": "Forwards 5 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_6": {
+    "cat": "general", "order": 952, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit6', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit6', false) end",
+    "title": "BBC Screen Key: 6",
+    "desc": "Forwards 6 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_7": {
+    "cat": "general", "order": 953, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit7', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit7', false) end",
+    "title": "BBC Screen Key: 7",
+    "desc": "Forwards 7 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_8": {
+    "cat": "general", "order": 954, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit8', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit8', false) end",
+    "title": "BBC Screen Key: 8",
+    "desc": "Forwards 8 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_9": {
+    "cat": "general", "order": 955, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit9', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Digit9', false) end",
+    "title": "BBC Screen Key: 9",
+    "desc": "Forwards 9 to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_space": {
+    "cat": "general", "order": 956, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Space', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Space', false) end",
+    "title": "BBC Screen Key: Space",
+    "desc": "Forwards Space to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_enter": {
+    "cat": "general", "order": 957, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Enter', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Enter', false) end",
+    "title": "BBC Screen Key: Enter",
+    "desc": "Forwards Enter to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_backspace": {
+    "cat": "general", "order": 958, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Backspace', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Backspace', false) end",
+    "title": "BBC Screen Key: Backspace",
+    "desc": "Forwards Backspace to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_tab": {
+    "cat": "general", "order": 959, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Tab', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Tab', false) end",
+    "title": "BBC Screen Key: Tab",
+    "desc": "Forwards Tab to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_up": {
+    "cat": "general", "order": 960, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowUp', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowUp', false) end",
+    "title": "BBC Screen Key: Up Arrow",
+    "desc": "Forwards Up Arrow to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_down": {
+    "cat": "general", "order": 961, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowDown', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowDown', false) end",
+    "title": "BBC Screen Key: Down Arrow",
+    "desc": "Forwards Down Arrow to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_left": {
+    "cat": "general", "order": 962, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowLeft', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowLeft', false) end",
+    "title": "BBC Screen Key: Left Arrow",
+    "desc": "Forwards Left Arrow to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_right": {
+    "cat": "general", "order": 963, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowRight', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ArrowRight', false) end",
+    "title": "BBC Screen Key: Right Arrow",
+    "desc": "Forwards Right Arrow to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_delete": {
+    "cat": "general", "order": 964, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Delete', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Delete', false) end",
+    "title": "BBC Screen Key: Delete",
+    "desc": "Forwards Delete to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_insert": {
+    "cat": "general", "order": 965, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Insert', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Insert', false) end",
+    "title": "BBC Screen Key: Insert",
+    "desc": "Forwards Insert to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_home": {
+    "cat": "general", "order": 966, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Home', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Home', false) end",
+    "title": "BBC Screen Key: Home",
+    "desc": "Forwards Home to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_end": {
+    "cat": "general", "order": 967, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('End', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('End', false) end",
+    "title": "BBC Screen Key: End",
+    "desc": "Forwards End to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_pageup": {
+    "cat": "general", "order": 968, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('PageUp', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('PageUp', false) end",
+    "title": "BBC Screen Key: Page Up",
+    "desc": "Forwards Page Up to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_pagedown": {
+    "cat": "general", "order": 969, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('PageDown', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('PageDown', false) end",
+    "title": "BBC Screen Key: Page Down",
+    "desc": "Forwards Page Down to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_semicolon": {
+    "cat": "general", "order": 970, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Semicolon', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Semicolon', false) end",
+    "title": "BBC Screen Key: ;",
+    "desc": "Forwards ; to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_equal": {
+    "cat": "general", "order": 971, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Equal', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Equal', false) end",
+    "title": "BBC Screen Key: =",
+    "desc": "Forwards = to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_comma": {
+    "cat": "general", "order": 972, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Comma', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Comma', false) end",
+    "title": "BBC Screen Key: ,",
+    "desc": "Forwards , to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_minus": {
+    "cat": "general", "order": 973, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Minus', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Minus', false) end",
+    "title": "BBC Screen Key: -",
+    "desc": "Forwards - to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_period": {
+    "cat": "general", "order": 974, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Period', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Period', false) end",
+    "title": "BBC Screen Key: .",
+    "desc": "Forwards . to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_slash": {
+    "cat": "general", "order": 975, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Slash', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Slash', false) end",
+    "title": "BBC Screen Key: /",
+    "desc": "Forwards / to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_backquote": {
+    "cat": "general", "order": 976, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Backquote', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Backquote', false) end",
+    "title": "BBC Screen Key: `",
+    "desc": "Forwards ` to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_bracketleft": {
+    "cat": "general", "order": 977, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('BracketLeft', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('BracketLeft', false) end",
+    "title": "BBC Screen Key: [",
+    "desc": "Forwards [ to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_backslash": {
+    "cat": "general", "order": 978, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Backslash', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Backslash', false) end",
+    "title": "BBC Screen Key: \\",
+    "desc": "Forwards \\ to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_bracketright": {
+    "cat": "general", "order": 979, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('BracketRight', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('BracketRight', false) end",
+    "title": "BBC Screen Key: ]",
+    "desc": "Forwards ] to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_quote": {
+    "cat": "general", "order": 980, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Quote', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('Quote', false) end",
+    "title": "BBC Screen Key: '",
+    "desc": "Forwards ' to the embedded browser while hovering a screen (rebind in Controls if needed)"
+  },
+  "bbc_key_shift": {
+    "cat": "general", "order": 981, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ShiftLeft', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ShiftLeft', false) end",
+    "title": "BBC Screen Key: Shift (either)",
+    "desc": "Tracks Shift for capitals/symbols in the embedded browser (rebind in Controls if needed)"
+  },
+  "bbc_key_ctrl": {
+    "cat": "general", "order": 982, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ControlLeft', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('ControlLeft', false) end",
+    "title": "BBC Screen Key: Ctrl (either)",
+    "desc": "Tracks Ctrl for shortcuts in the embedded browser (rebind in Controls if needed)"
+  },
+  "bbc_key_alt": {
+    "cat": "general", "order": 983, "ctx": "tlua", "actionMap": "BbcScreenKeys",
+    "onDown": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('AltLeft', true) end",
+    "onUp": "if extensions and extensions.mediaBridgeGE and extensions.mediaBridgeGE.sendKey then extensions.mediaBridgeGE.sendKey('AltLeft', false) end",
+    "title": "BBC Screen Key: Alt",
+    "desc": "Tracks Alt for the embedded browser (rebind in Controls if needed)"
+  }
+}

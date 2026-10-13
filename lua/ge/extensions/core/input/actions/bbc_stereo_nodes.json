@@ -1,0 +1,13 @@
+{
+  // BBC Stereo - Speaker node configurator menu toggle.
+  // "First" = always active (works while driving and in menus), like the dev console.
+  "bbc_stereo_toggle_speaker_nodes": {
+    "cat": "general",
+    "order": 900,
+    "ctx": "tlua",
+    "actionMap": "First",
+    "onDown": "if extensions and extensions.cameraOutgaugeGE then extensions.cameraOutgaugeGE.toggleSpeakerMenu() end",
+    "title": "BBC Stereo: Speaker Nodes Menu",
+    "desc": "Toggles the speaker node setup window (choose which vehicle nodes are used as speakers)"
+  }
+}

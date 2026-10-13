@@ -1,0 +1,5 @@
+{
+  // toggle_screen_tuner lives in bbc_universal_screen.json (valid category).
+  // A duplicate definition here used an invalid category and made the
+  // winning definition load-order dependent, so this file stays empty.
+}

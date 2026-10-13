@@ -1,0 +1,11 @@
+{
+  "bbc_media_toggle_media_info": {
+    "cat": "general",
+    "order": 901,
+    "ctx": "tlua",
+    "actionMap": "First",
+    "onDown": "extensions.load(\"mediaInfoGE\"); extensions.mediaInfoGE.toggleMediaMenu()",
+    "title": "BBC Universal: Media Info",
+    "desc": "Toggles the media info window (shows current song title, artist, time, album art)"
+  }
+}

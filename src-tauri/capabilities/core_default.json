@@ -1,0 +1,194 @@
+[
+  {
+    "identifier": "core:default",
+    "permissions": ["core:default"]
+  },
+  {
+    "identifier": "core:window:default",
+    "permissions": ["core:window:default"]
+  },
+  {
+    "identifier": "core:window:allow-close",
+    "permissions": ["core:window:allow-close"]
+  },
+  {
+    "identifier": "core:window:allow-create",
+    "permissions": ["core:window:allow-create"]
+  },
+  {
+    "identifier": "core:window:allow-start-dragging",
+    "permissions": ["core:window:allow-start-dragging"]
+  },
+  {
+    "identifier": "core:window:allow-set-focus",
+    "permissions": ["core:window:allow-set-focus"]
+  },
+  {
+    "identifier": "core:window:allow-show",
+    "permissions": ["core:window:allow-show"]
+  },
+  {
+    "identifier": "core:window:allow-hide",
+    "permissions": ["core:window:allow-hide"]
+  },
+  {
+    "identifier": "core:window:allow-minimize",
+    "permissions": ["core:window:allow-minimize"]
+  },
+  {
+    "identifier": "core:window:allow-maximize",
+    "permissions": ["core:window:allow-maximize"]
+  },
+  {
+    "identifier": "core:window:allow-set-title",
+    "permissions": ["core:window:allow-set-title"]
+  },
+  {
+    "identifier": "core:window:allow-set-size",
+    "permissions": ["core:window:allow-set-size"]
+  },
+  {
+    "identifier": "core:window:allow-set-position",
+    "permissions": ["core:window:allow-set-position"]
+  },
+  {
+    "identifier": "core:window:allow-set-resizable",
+    "permissions": ["core:window:allow-set-resizable"]
+  },
+  {
+    "identifier": "core:window:allow-set-fullscreen",
+    "permissions": ["core:window:allow-set-fullscreen"]
+  },
+  {
+    "identifier": "core:window:allow-is-fullscreen",
+    "permissions": ["core:window:allow-is-fullscreen"]
+  },
+  {
+    "identifier": "core:window:allow-is-minimized",
+    "permissions": ["core:window:allow-is-minimized"]
+  },
+  {
+    "identifier": "core:window:allow-is-maximized",
+    "permissions": ["core:window:allow-is-maximized"]
+  },
+  {
+    "identifier": "core:window:allow-is-focused",
+    "permissions": ["core:window:allow-is-focused"]
+  },
+  {
+    "identifier": "core:window:allow-inner-size",
+    "permissions": ["core:window:allow-inner-size"]
+  },
+  {
+    "identifier": "core:window:allow-outer-size",
+    "permissions": ["core:window:allow-outer-size"]
+  },
+  {
+    "identifier": "core:window:allow-scale-factor",
+    "permissions": ["core:window:allow-scale-factor"]
+  },
+  {
+    "identifier": "core:window:allow-current-monitor",
+    "permissions": ["core:window:allow-current-monitor"]
+  },
+  {
+    "identifier": "core:window:allow-available-monitors",
+    "permissions": ["core:window:allow-available-monitors"]
+  },
+  {
+    "identifier": "core:window:allow-primary-monitor",
+    "permissions": ["core:window:allow-primary-monitor"]
+  },
+  {
+    "identifier": "core:window:allow-outer-position",
+    "permissions": ["core:window:allow-outer-position"]
+  },
+  {
+    "identifier": "core:window:allow-inner-position",
+    "permissions": ["core:window:allow-inner-position"]
+  },
+  {
+    "identifier": "core:webview:default",
+    "permissions": ["core:webview:default"]
+  },
+  {
+    "identifier": "core:webview:allow-create-webview",
+    "permissions": ["core:webview:allow-create-webview"]
+  },
+  {
+    "identifier": "core:webview:allow-create-webview-window",
+    "permissions": ["core:webview:allow-create-webview-window"]
+  },
+  {
+    "identifier": "core:webview:allow-internal-toggle-devtools",
+    "permissions": ["core:webview:allow-internal-toggle-devtools"]
+  },
+  {
+    "identifier": "core:webview:allow-print",
+    "permissions": ["core:webview:allow-print"]
+  },
+  {
+    "identifier": "core:webview:allow-reparent",
+    "permissions": ["core:webview:allow-reparent"]
+  },
+  {
+    "identifier": "core:webview:allow-set-webview-focus",
+    "permissions": ["core:webview:allow-set-webview-focus"]
+  },
+  {
+    "identifier": "core:webview:allow-set-webview-position",
+    "permissions": ["core:webview:allow-set-webview-position"]
+  },
+  {
+    "identifier": "core:webview:allow-set-webview-size",
+    "permissions": ["core:webview:allow-set-webview-size"]
+  },
+  {
+    "identifier": "core:webview:allow-set-webview-zoom",
+    "permissions": ["core:webview:allow-set-webview-zoom"]
+  },
+  {
+    "identifier": "core:webview:allow-webview-close",
+    "permissions": ["core:webview:allow-webview-close"]
+  },
+  {
+    "identifier": "core:webview:allow-webview-position",
+    "permissions": ["core:webview:allow-webview-position"]
+  },
+  {
+    "identifier": "core:webview:allow-webview-size",
+    "permissions": ["core:webview:allow-webview-size"]
+  },
+  {
+    "identifier": "core:webview:allow-webview-show",
+    "permissions": ["core:webview:allow-webview-show"]
+  },
+  {
+    "identifier": "core:webview:allow-webview-hide",
+    "permissions": ["core:webview:allow-webview-hide"]
+  },
+  {
+    "identifier": "core:webview:allow-set-webview-background-color",
+    "permissions": ["core:webview:allow-set-webview-background-color"]
+  },
+  {
+    "identifier": "core:webview:allow-get-all-webviews",
+    "permissions": ["core:webview:allow-get-all-webviews"]
+  },
+  {
+    "identifier": "core:event:allow-emit",
+    "permissions": ["core:event:allow-emit"]
+  },
+  {
+    "identifier": "core:event:allow-emit-to",
+    "permissions": ["core:event:allow-emit-to"]
+  },
+  {
+    "identifier": "core:event:allow-listen",
+    "permissions": ["core:event:allow-listen"]
+  },
+  {
+    "identifier": "core:event:allow-unlisten",
+    "permissions": ["core:event:allow-unlisten"]
+  }
+]

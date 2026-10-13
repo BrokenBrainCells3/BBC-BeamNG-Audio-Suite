@@ -1,0 +1,13 @@
+{
+  // BBC Stereo - Lighting props editor menu toggle.
+  // "First" = always active (works while driving and in menus), like the dev console.
+  "bbc_stereo_toggle_lighting_props": {
+    "cat": "general",
+    "order": 901,
+    "ctx": "tlua",
+    "actionMap": "First",
+    "onDown": "if extensions and extensions.lightingPropsEditor then extensions.lightingPropsEditor.toggle() end",
+    "title": "BBC Stereo: Lighting Props Editor",
+    "desc": "Toggles the lighting props position editor (SPOTLIGHT/POINTLIGHT props for the universal screen)"
+  }
+}

@@ -1,0 +1,84 @@
+/**
+ * Base CSS - CSS resets and root custom properties
+ * Load this file first
+ */
+
+/* ========================================
+   CSS RESET
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   ROOT CUSTOM PROPERTIES
+   Default theme values - overridden by theme.css
+   ======================================== */
+
+:root {
+  /* Primary colors - will be overridden by theme */
+  --primary-color: #58c2ff;
+  --primary-hover: #3da8e8;
+  --primary-glow: rgba(88, 194, 255, 0.3);
+  --primary-light: rgba(88, 194, 255, 0.1);
+  --primary-accent: rgba(88, 194, 255, 0.2);
+
+  /* Background colors - will be overridden by theme */
+  --bg-dark: hsl(210, 15%, 15%);
+  --bg-card: hsl(210, 15%, 18%);
+  --bg-input: hsl(210, 15%, 22%);
+
+  /* Text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+
+  /* Border color - will be overridden by theme */
+  --border-color: hsl(210, 15%, 28%);
+
+  /* Status colors */
+  --success-color: #4caf50;
+  --error-color: #f44336;
+
+  /* Gradient colors - will be overridden by theme */
+  --gradient-start: hsl(210, 15%, 15%);
+  --gradient-end: hsl(210, 15%, 18%);
+}
+
+/* ========================================
+   BASE TYPOGRAPHY
+   ======================================== */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body.loaded {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   ACCESSIBILITY - Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .loading-screen.hidden {
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  }
+}

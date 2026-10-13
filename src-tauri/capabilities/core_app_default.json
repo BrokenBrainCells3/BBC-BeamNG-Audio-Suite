@@ -1,0 +1,22 @@
+[
+  {
+    "identifier": "core:app:default",
+    "permissions": ["core:app:default"]
+  },
+  {
+    "identifier": "core:app:allow-app-hide",
+    "permissions": ["core:app:allow-app-hide"]
+  },
+  {
+    "identifier": "core:app:allow-app-show",
+    "permissions": ["core:app:allow-app-show"]
+  },
+  {
+    "identifier": "core:app:allow-name",
+    "permissions": ["core:app:allow-name"]
+  },
+  {
+    "identifier": "core:app:allow-version",
+    "permissions": ["core:app:allow-version"]
+  }
+]

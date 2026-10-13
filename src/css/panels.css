@@ -1,0 +1,685 @@
+/* Panels CSS - Panel-specific styles (BeamNG, Camera, Spatial)
+   Load this file after components.css */
+
+/* ========================================
+   3D AUDIO VISUALIZER
+   ======================================== */
+
+.3d-audio-visualizer {
+  margin-bottom: 30px;
+  padding: 25px;
+  background: var(--bg-input);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.3d-audio-visualizer.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 30px var(--primary-glow);
+}
+
+.3d-audio-visualizer.active .car-outline {
+  border-color: var(--primary-color);
+}
+
+.3d-audio-visualizer.active .speaker {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.3d-audio-visualizer.active .subwoofer {
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+}
+
+.car-top-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.car-outline {
+  position: relative;
+  width: 300px;
+  height: 180px;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-dark));
+  border: 3px solid var(--border-color);
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Speaker positions in car */
+.speaker {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.speaker-fl {
+  top: 15px;
+  left: 35px;
+}
+
+.speaker-fr {
+  top: 15px;
+  right: 35px;
+}
+
+.speaker-rl {
+  bottom: 15px;
+  left: 35px;
+}
+
+.speaker-rr {
+  bottom: 15px;
+  right: 35px;
+}
+
+.subwoofer {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  border: 2px solid #ff6b6b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.sub-left {
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-60%);
+}
+
+.sub-right {
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-40%);
+}
+
+.driver-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  opacity: 0.7;
+}
+
+/* Audio Indicators */
+.audio-indicators {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.indicator-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.indicator-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 500;
+}
+
+.indicator-bar {
+  height: 100px;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.indicator-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, var(--primary-color), var(--primary-hover));
+  height: 0%;
+  transition: height 0.1s ease;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+#sub-indicator {
+  background: linear-gradient(to top, #ff6b6b, #ee5a5a);
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+/* ========================================
+   SPEAKER MUTE TOGGLES
+   ======================================== */
+
+.speaker-mute-toggles {
+  margin: 15px 0;
+  padding: 15px;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.speaker-mute-toggles h4 {
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mute-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mute-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mute-toggle-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--error-color);
+}
+
+.mute-toggle-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 45px;
+}
+
+/* ========================================
+   SPEAKER LOS (Line-of-Sight) INDICATOR
+   ======================================== */
+
+.los-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.los-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.los-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--success-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.los-item.los-blocked .los-dot {
+  background: var(--error-color);
+}
+
+.los-item.los-unknown .los-dot {
+  background: var(--text-secondary);
+  opacity: 0.4;
+}
+
+/* ========================================
+   3D AUDIO ENHANCEMENTS
+   ======================================== */
+
+.enhancements-header {
+  margin-bottom: 10px;
+}
+
+.enhancement-toggle-row {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+/* The enhancement group stacks its header + toggles vertically (a plain
+   .toggle-container is a horizontal flex row and would squeeze each slider,
+   letting the knob overflow its track). */
+.enhancements-container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.enhancement-toggle-row .toggle-label {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+/* ========================================
+   SPATIAL PLOT PANEL
+   ======================================== */
+
+.spatial-plot-panel {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.spatial-plot-panel h4 {
+  color: var(--primary-color);
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.plot-container {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 15px;
+  align-items: start;
+}
+
+.spatial-plot-canvas {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.plot-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legend-vehicle {
+  background: #4ecdc4;
+  box-shadow: 0 0 8px #4ecdc4;
+}
+
+.legend-camera {
+  background: #ff6b6b;
+  box-shadow: 0 0 8px #ff6b6b;
+}
+
+.legend-speaker-fl {
+  background: #f9d423;
+}
+
+.legend-speaker-fr {
+  background: #f9d423;
+}
+
+.legend-speaker-rl {
+  background: #f9d423;
+}
+
+.legend-speaker-rr {
+  background: #f9d423;
+}
+
+.legend-speaker-sub {
+  background: #a8edea;
+}
+
+.legend-line {
+  width: 20px;
+  height: 3px;
+  background: #ff6b6b;
+  border-radius: 2px;
+}
+
+.plot-stats {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.mode-manual {
+  color: #f9d423;
+}
+
+.mode-udp {
+  color: #4ecdc4;
+}
+
+@media (max-width: 900px) {
+  .plot-container {
+    grid-template-columns: 1fr;
+  }
+
+  .plot-legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .plot-stats {
+    flex-wrap: wrap;
+  }
+}
+
+/* ========================================
+   EMBEDDED BROWSER (Opera via SetParent)
+   The native child window is positioned over this box.
+   ======================================== */
+
+#embed-container {
+  /* Strict 16:9 so the docked Opera window, the JPEG stream, and the
+     in-car screen all share one aspect — nothing cropped anywhere.
+     (Manual vertical resize was removed: it broke the ratio. Widen the
+     app window if you want a bigger picture.) */
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+#embed-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+#opera-exe-path {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   OPERA STREAM PREVIEW (WebSocket JPEG)
+   ======================================== */
+
+.stream-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 220px));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.stream-controls input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+#stream-preview-wrap {
+  min-height: 320px;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#stream-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+#stream-preview[src=""] {
+  display: none;
+}
+
+#stream-preview-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* ============================================
+   Amp / Sub / Box telemetry panel (amp-panel.js)
+   ============================================ */
+
+#amp-panel .amp-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.amp-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--status-offline);
+  flex-shrink: 0;
+}
+.amp-status-dot.amp-ok { background: var(--status-connected); box-shadow: 0 0 6px var(--status-connected); }
+.amp-status-dot.amp-stale { background: var(--status-connecting); }
+.amp-status-dot.amp-off { background: var(--status-error); }
+
+#amp-panel h3 {
+  color: var(--text-primary);
+  font-size: 15px;
+  margin: 0 0 10px 0;
+}
+
+.amp-live-section { margin-bottom: 20px; }
+
+.amp-live-grid,
+.amp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+.amp-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.amp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  min-width: 0;
+}
+.amp-k {
+  color: var(--text-secondary);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.amp-v {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.amp-v.amp-warn {
+  color: var(--error-color, #f44336);
+}
+
+.amp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.amp-card {
+  background: var(--gradient-start);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* Amp overrides section */
+.amp-overrides-section { margin-top: 20px; }
+.amp-overrides-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.amp-ovr-hint {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 400;
+  flex: 1;
+}
+.amp-ovr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 8px;
+}
+.amp-ovr-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+.amp-ovr-row.amp-ovr-on {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px var(--primary-glow);
+}
+.amp-ovr-row .amp-k { flex-shrink: 0; width: 105px; }
+.amp-ovr-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.amp-ovr-ctrl input[type="range"] {
+  flex: 1;
+  min-width: 60px;
+  accent-color: var(--primary-color);
+}
+.amp-ovr-ctrl select {
+  flex: 1;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+.amp-ovr-val {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  width: 52px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.amp-ovr-on .amp-ovr-val { color: var(--primary-color); }
+.amp-ovr-clear {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+.amp-ovr-clear:hover { color: var(--error-color, #f44336); }

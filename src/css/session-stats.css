@@ -1,0 +1,517 @@
+/**
+ * Session Stats CSS - Session statistics panel styles
+ * Load this file after logs.css
+ */
+
+/* ========================================
+   SESSION STATS PANEL CONTAINER
+   ======================================== */
+
+#session-stats-panel .settings-section {
+  padding: 20px;
+}
+
+/* ========================================
+   LIVE SESSION CARD
+   ======================================== */
+
+.session-live-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-input));
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.session-live-card.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 20px var(--primary-glow);
+}
+
+.live-session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.live-session-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-session-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--success-color);
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--success-color);
+  border-radius: 50%;
+  animation: pulse-live 2s infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.live-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.live-stat-item {
+  background: var(--bg-dark);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.live-stat-item:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.live-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.live-stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   LIFETIME STATS GRID
+   ======================================== */
+
+.lifetime-stats-section {
+  margin-bottom: 30px;
+}
+
+.lifetime-stats-section h3 {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lifetime-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--bg-input);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 16px var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+.stat-card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.stat-card-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+/* ========================================
+   MOST PLAYED SONGS
+   ======================================== */
+
+.most-played-section {
+  margin-bottom: 30px;
+}
+
+.most-played-section h3 {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.most-played-list {
+  background: var(--bg-input);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.most-played-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.most-played-item:last-child {
+  margin-bottom: 0;
+}
+
+.most-played-item:hover {
+  background: rgba(var(--primary-rgb), 0.1);
+  transform: translateX(4px);
+}
+
+.most-played-rank {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  width: 30px;
+  text-align: center;
+}
+
+.most-played-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.most-played-title {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.most-played-artist {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.most-played-count {
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ========================================
+   SESSION HISTORY / LOG VIEWER
+   ======================================== */
+
+.session-history-section {
+  margin-bottom: 30px;
+}
+
+.session-history-section h3 {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.session-history-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.session-log-select {
+  flex: 1;
+  padding: 10px 14px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.session-log-select:hover {
+  border-color: var(--primary-color);
+}
+
+.session-log-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.session-log-viewer {
+  background: var(--bg-dark);
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 11px;
+  border: 1px solid var(--border-color);
+}
+
+.session-log-entry {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-left: 3px solid;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 2px;
+  line-height: 1.5;
+  animation: logFadeIn 0.2s ease-out;
+}
+
+@keyframes logFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Log Entry Types - Color coded */
+.session-log-entry.crash {
+  border-left-color: #f44336;
+  background: rgba(244, 67, 54, 0.08);
+}
+
+.session-log-entry.crash .log-message {
+  color: #ffcdd2;
+}
+
+.session-log-entry.record {
+  border-left-color: #4caf50;
+  background: rgba(76, 175, 80, 0.08);
+}
+
+.session-log-entry.record .log-message {
+  color: #c8e6c9;
+}
+
+.session-log-entry.song {
+  border-left-color: #2196f3;
+  background: rgba(33, 150, 243, 0.08);
+}
+
+.session-log-entry.song .log-message {
+  color: #bbdefb;
+}
+
+.session-log-entry.voice {
+  border-left-color: #ff9800;
+  background: rgba(255, 152, 0, 0.08);
+}
+
+.session-log-entry.voice .log-message {
+  color: #ffe0b2;
+}
+
+.session-log-entry.general {
+  border-left-color: #9e9e9e;
+}
+
+.session-log-entry.general .log-message {
+  color: #e0e0e0;
+}
+
+.session-log-timestamp {
+  opacity: 0.5;
+  margin-right: 8px;
+  font-size: 10px;
+}
+
+.session-log-type {
+  font-weight: 600;
+  margin-right: 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.session-log-message {
+  font-weight: 400;
+}
+
+.session-log-empty {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 40px 20px;
+  font-size: 13px;
+}
+
+/* ========================================
+   RESET BUTTON SECTION
+   ======================================== */
+
+.session-reset-section {
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.session-reset-btn {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border: 1px solid #f44336;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.session-reset-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+/* ========================================
+   SCROLLBAR STYLES
+   ======================================== */
+
+.session-log-viewer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.session-log-viewer::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+  border-radius: 4px;
+}
+
+.session-log-viewer::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+.session-log-viewer::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+.lifetime-stats-grid::-webkit-scrollbar,
+.live-stats-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .live-stats-grid,
+  .lifetime-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .live-stats-grid,
+  .lifetime-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .session-live-card {
+    padding: 16px;
+  }
+
+  .live-stat-value {
+    font-size: 22px;
+  }
+
+  .stat-card-value {
+    font-size: 20px;
+  }
+
+  .session-history-controls {
+    flex-direction: column;
+  }
+
+  .session-log-select {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   EMPTY STATES
+   ======================================== */
+
+.session-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.session-empty-icon {
+  font-size: 64px;
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+
+.session-empty-state h4 {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.session-empty-state p {
+  font-size: 13px;
+  opacity: 0.8;
+}

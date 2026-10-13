@@ -1,0 +1,505 @@
+/**
+ * Layout CSS - Page structure and major layout components
+ * Load this file after theme.css
+ */
+
+/* ========================================
+   SIDE MENU
+   ======================================== */
+
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-card);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.side-nav a {
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--text-secondary);
+  display: block;
+  transition: 0.2s;
+}
+
+.side-nav a:hover {
+  color: var(--primary-color);
+  background: var(--primary-light);
+}
+
+.side-nav .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 36px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.open-btn {
+  color: var(--text-primary);
+  transition: color 0.2s;
+}
+
+.open-btn:hover {
+  color: var(--primary-color);
+}
+
+/* ========================================
+   USER NAME PROMPT
+   ======================================== */
+
+#user-name-prompt {
+  display: none; /* Controlled by JS - shown when no user name */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+/* Fix: Utility class to show user name prompt */
+#user-name-prompt.visible {
+  display: flex;
+}
+
+/* Fix: Utility class to hide user name prompt (default state) */
+#user-name-prompt.user-name-prompt-hidden {
+  display: none;
+}
+
+#user-name-form {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+#user-name-form label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+#user-name-form input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+#user-name-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+#user-name-form button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#user-name-form button:hover {
+  background: var(--primary-hover);
+}
+
+/* ========================================
+   HOME SHELL
+   ======================================== */
+
+.home-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ========================================
+   APP HEADER
+   ======================================== */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Fix #23: Replaced inline style on .open-btn */
+.open-btn {
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color 0.2s;
+}
+
+.open-btn:hover {
+  color: var(--primary-color);
+}
+
+.app-header .eyebrow {
+  font-size: 12px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.hero-content .eyebrow {
+  font-size: 12px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero-content h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-panel {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.hero-panel:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 40px var(--primary-glow);
+}
+
+.panel-label {
+  font-size: 12px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+/* ========================================
+   MEDIA TILE
+   ======================================== */
+
+.media-tile {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.media-thumbnail-container {
+  width: 80px;
+  height: 80px;
+  background: var(--bg-input);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.media-icon {
+  font-size: 32px;
+  color: var(--primary-color);
+}
+
+.media-thumbnail-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-info {
+  flex: 1;
+}
+
+.media-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.media-artist {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.media-duration {
+  font-size: 13px;
+  color: var(--primary-color);
+  font-family: 'Consolas', 'Monaco', monospace;
+  margin-bottom: 4px;
+}
+
+.media-status {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.media-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.media-control-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 50%;
+  background: var(--bg-input);
+  color: var(--text-primary, inherit);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.media-control-btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.media-control-btn:active {
+  transform: scale(0.92);
+}
+
+.media-control-play {
+  width: 40px;
+  height: 40px;
+  font-size: 15px;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.media-control-play:hover {
+  filter: brightness(1.15);
+}
+
+/* ========================================
+   SETTINGS SECTIONS
+   ======================================== */
+
+.settings-section {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-header .eyebrow {
+  font-size: 12px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.settings-header h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.settings-header p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ========================================
+   LOADING SCREEN
+   ======================================== */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  overflow: hidden;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-image {
+  max-width: 300px;
+  height: auto;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.loading-text {
+  margin-top: 40px;
+  font-size: 18px;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* ========================================
+   RESPONSIVE LAYOUT
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .frequency-bands-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .frequency-bands-container {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-bands {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+}

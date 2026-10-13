@@ -1,0 +1,11 @@
+{
+  "toggle_screen_tuner": {
+    "cat": "general",
+    "order": 902,
+    "ctx": "tlua",
+    "actionMap": "First",
+    "onDown": "extensions.load(\"screenTuner\"); extensions.screenTuner.toggle()",
+    "title": "BBC Universal: Screen Tuner",
+    "desc": "Toggles the screen tuner window (configure screen interaction areas)"
+  }
+}

@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Viz Control Center</title>
+    
+    <!-- CSS Files - Load in cascade order -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/panels.css" />
+    <link rel="stylesheet" href="css/modals.css" />
+    <link rel="stylesheet" href="css/logs.css" />
+    <link rel="stylesheet" href="css/session-stats.css" />
+  </head>
+  <body>
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-content">
+        <img src="assets/loading.png" alt="Loading" class="loading-image" />
+        <p class="loading-text">Loading...</p>
+      </div>
+    </div>
+
+    <div id="side-menu" class="side-nav">
+      <a href="javascript:void(0)" class="close-btn">&times;</a>
+      <a href="#beamng-panel" id="beamng-link">Frequency Analysis</a>
+      <a href="#eq-panel" id="eq-link">Equalizer</a>
+      <a href="#settings-panel" id="settings-link">Settings</a>
+      <a href="#log-panel" id="log-link">Logs</a>
+      <a href="#session-stats-panel" id="session-stats-link">Session Stats</a>
+      <a href="#amp-panel" id="amp-link">Amp / Sub / Box</a>
+      <a href="#browser-panel" id="browser-link">Opera Browser</a>
+      <a href="#stream-panel" id="stream-link">Opera Stream</a>
+    </div>
+
+    <div id="user-name-prompt" class="user-name-prompt-hidden">
+      <form id="user-name-form">
+        <label for="user-name-input">Welcome! What is your name?</label>
+        <input type="text" id="user-name-input" placeholder="Enter your name..." />
+        <button type="submit">Continue</button>
+      </form>
+    </div>
+
+    <div class="home-shell" id="main-content">
+      <header class="app-header">
+        <div>
+          <span class="open-btn" aria-label="Open navigation menu">&#9776;</span>
+          <p class="eyebrow">Audio Viz Studio</p>
+          <h1>Welcome, <span id="user-name"></span></h1>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Live Visual Orchestration</p>
+          <h2>BeamNG Audio Control Center For Real-time 3d-audio</h2>
+          <p>Hear your music how it should sound while cruising.</p>
+
+        </div>
+        <div class="hero-panel">
+          <p class="panel-label">Now Playing</p>
+          <div class="media-tile">
+            <div class="media-thumbnail-container">
+              <div class="media-icon" id="media-icon"></div>
+              <img id="media-thumbnail" src="" alt="" class="media-thumbnail-hidden" />
+            </div>
+            <div class="media-info">
+              <p class="media-title" id="media-title">No Media</p>
+              <p class="media-artist" id="media-artist"></p>
+              <p class="media-duration" id="media-duration"></p>
+              <p class="media-status" id="media-status"></p>
+              <div class="media-controls">
+                <button id="media-prev-btn" class="media-control-btn" title="Previous" aria-label="Previous track">&#9198;</button>
+                <button id="media-play-pause-btn" class="media-control-btn media-control-play" title="Play / Pause" aria-label="Play or pause">&#9654;</button>
+                <button id="media-next-btn" class="media-control-btn" title="Next" aria-label="Next track">&#9197;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section" id="beamng-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Frequency Analysis</p>
+            <h2>BeamNg Output</h2>
+            <p>Monitor audio levels across different frequency bands in real-time.</p>
+          </div>
+          <div class="settings-actions">
+            <button id="start-audio-capture-btn" class="btn-secondary audio-capture-btn">
+              Start PC Audio Capture
+            </button>
+            <p id="audio-capture-status" class="audio-capture-status">
+              Not capturing
+            </p>
+          </div>
+        </div>
+
+        <!-- 3D Audio UDP Toggle -->
+        <div class="toggle-container toggle-container-mb">
+          <label class="toggle-switch">
+            <input type="checkbox" id="3d-audio-udp-toggle" />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">3D Audio (UDP Stream)</span>
+          </label>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; margin-left: 8px;">
+            Uses real-time speaker positions from BeamNG UDP stream. No manual adjustment.
+          </p>
+        </div>
+
+        <!-- Visualizer Transport Toggle (HTTP polling vs WebSocket push) -->
+        <div class="toggle-container toggle-container-mb">
+          <label class="toggle-switch">
+            <input type="checkbox" id="visualizer-ws-toggle" />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Visualizer over WebSocket</span>
+          </label>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; margin-left: 8px;">
+            Off: values served over HTTP at <code>http://0.0.0.0:5000/values</code> (polling).
+            On: values pushed over WebSocket at <code>ws://0.0.0.0:5001</code> (~30 fps).
+          </p>
+        </div>
+
+        <!-- 3D Audio Enhancements -->
+        <div class="toggle-container toggle-container-mb enhancements-container">
+          <div class="enhancements-header">
+            <span class="toggle-label" style="font-weight: 600;">3D Enhancements</span>
+          </div>
+          <div class="enhancement-toggle-row">
+            <label class="toggle-switch">
+              <input type="checkbox" id="itd-toggle" />
+              <span class="toggle-slider"></span>
+              <span class="toggle-label">ITD (Interaural Delay)</span>
+            </label>
+          </div>
+          <div class="enhancement-toggle-row">
+            <label class="toggle-switch">
+              <input type="checkbox" id="head-shadow-toggle" />
+              <span class="toggle-slider"></span>
+              <span class="toggle-label">Head Shadowing</span>
+            </label>
+          </div>
+          <div class="enhancement-toggle-row">
+            <label class="toggle-switch">
+              <input type="checkbox" id="sub-crossover-toggle" />
+              <span class="toggle-slider"></span>
+              <span class="toggle-label">Sub Crossover</span>
+            </label>
+          </div>
+          <div class="enhancement-toggle-row">
+            <label class="toggle-switch">
+              <input type="checkbox" id="rear-voicing-toggle" />
+              <span class="toggle-slider"></span>
+              <span class="toggle-label">Rear Speaker Voicing</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3D Audio Car Visualization -->
+        <div id="audio-3d-visualizer" class="audio-3d-visualizer visualizer-hidden">
+          <!-- Speaker Mute Toggles -->
+          <div class="speaker-mute-toggles">
+            <h4>Speaker Mutes</h4>
+            <div class="mute-toggle-row">
+              <label class="mute-toggle-item">
+                <input type="checkbox" id="speaker-mute-fl" />
+                <span class="mute-toggle-label">FL</span>
+              </label>
+              <label class="mute-toggle-item">
+                <input type="checkbox" id="speaker-mute-fr" />
+                <span class="mute-toggle-label">FR</span>
+              </label>
+              <label class="mute-toggle-item">
+                <input type="checkbox" id="speaker-mute-rl" />
+                <span class="mute-toggle-label">RL</span>
+              </label>
+              <label class="mute-toggle-item">
+                <input type="checkbox" id="speaker-mute-rr" />
+                <span class="mute-toggle-label">RR</span>
+              </label>
+              <label class="mute-toggle-item">
+                <input type="checkbox" id="speaker-mute-sub-l" />
+                <span class="mute-toggle-label">Sub L</span>
+              </label>
+              <label class="mute-toggle-item">
+                <input type="checkbox" id="speaker-mute-sub-r" />
+                <span class="mute-toggle-label">Sub R</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Spatial Position Plot -->
+        <div class="spatial-plot-panel">
+          <h4>3D Spatial Position Plot (Top-Down View)</h4>
+          <div class="plot-container">
+            <canvas id="spatial-plot-canvas" class="spatial-plot-canvas"></canvas>
+            <div class="plot-legend">
+              <div class="legend-item"><span class="legend-color legend-vehicle"></span> Vehicle Center</div>
+              <div class="legend-item"><span class="legend-color legend-camera"></span> Camera</div>
+              <div class="legend-item"><span class="legend-color legend-speaker-fl"></span> FL Speaker</div>
+              <div class="legend-item"><span class="legend-color legend-speaker-fr"></span> FR Speaker</div>
+              <div class="legend-item"><span class="legend-color legend-speaker-rl"></span> RL Speaker</div>
+              <div class="legend-item"><span class="legend-color legend-speaker-rr"></span> RR Speaker</div>
+              <div class="legend-item"><span class="legend-color legend-speaker-sub"></span> Subwoofer</div>
+              <div class="legend-item"><span class="legend-line legend-camera-dir"></span> Camera Direction</div>
+            </div>
+            <div class="plot-stats">
+              <div class="stat-row">
+                <span class="stat-label">Camera → Vehicle:</span>
+                <span id="plot-cam-veh-dist" class="stat-value">0.00 m</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">Camera Heading:</span>
+                <span id="plot-cam-heading" class="stat-value">0°</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">Mode:</span>
+                <span id="plot-mode" class="stat-value mode-manual">Manual</span>
+              </div>
+            </div>
+            <div class="plot-stats" id="plot-los">
+              <div class="stat-row">
+                <span class="stat-label">Speaker LOS:</span>
+              </div>
+              <div class="los-row" id="speaker-los-row">
+                <span class="los-item" data-speaker="fl"><span class="los-dot"></span>FL</span>
+                <span class="los-item" data-speaker="fr"><span class="los-dot"></span>FR</span>
+                <span class="los-item" data-speaker="rl"><span class="los-dot"></span>RL</span>
+                <span class="los-item" data-speaker="rr"><span class="los-dot"></span>RR</span>
+                <span class="los-item" data-speaker="sub_l"><span class="los-dot"></span>Sub L</span>
+                <span class="los-item" data-speaker="sub_r"><span class="los-dot"></span>Sub R</span>
+                <span class="los-item" data-speaker="twt_l"><span class="los-dot"></span>Twt L</span>
+                <span class="los-item" data-speaker="twt_r"><span class="los-dot"></span>Twt R</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="frequency-bands-container">
+          <div class="frequency-band-display">
+            <div class="band-header">
+              <h3>Subwoofer</h3>
+              <span class="band-range">0 - 60 Hz</span>
+            </div>
+            <div class="waveform-display">
+              <canvas id="subwoofer-canvas" class="band-canvas"></canvas>
+            </div>
+            <div class="band-value">
+              <span id="subwoofer-value">0.00</span>
+            </div>
+          </div>
+          <div class="frequency-band-display">
+            <div class="band-header">
+              <h3>Bass</h3>
+              <span class="band-range">60 - 250 Hz</span>
+            </div>
+            <div class="waveform-display">
+              <canvas id="bass-canvas" class="band-canvas"></canvas>
+            </div>
+            <div class="band-value">
+              <span id="bass-value">0.00</span>
+            </div>
+          </div>
+          <div class="frequency-band-display">
+            <div class="band-header">
+              <h3>Mids</h3>
+              <span class="band-range">250 Hz - 4 kHz</span>
+            </div>
+            <div class="waveform-display">
+              <canvas id="mids-canvas" class="band-canvas"></canvas>
+            </div>
+            <div class="band-value">
+              <span id="mids-value">0.00</span>
+            </div>
+          </div>
+          <div class="frequency-band-display">
+            <div class="band-header">
+              <h3>Treble</h3>
+              <span class="band-range">4 kHz - 20 kHz</span>
+            </div>
+            <div class="waveform-display">
+              <canvas id="treble-canvas" class="band-canvas"></canvas>
+            </div>
+            <div class="band-value">
+              <span id="treble-value">0.00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Equalizer Panel -->
+      <section class="settings-section" id="eq-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Audio Processing</p>
+            <h2>Equalizer</h2>
+            <p>16-band parametric equalizer with preset management</p>
+          </div>
+          <div class="settings-actions">
+            <button id="reset-eq" class="btn-ghost">Reset EQ</button>
+          </div>
+        </div>
+
+        <!-- Electrics UDP Control Toggle -->
+        <div class="toggle-container toggle-container-mb">
+          <label class="toggle-switch">
+            <input type="checkbox" id="electrics-udp-toggle" />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Electrics UDP Control</span>
+          </label>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px; margin-left: 8px;">
+            Control EQ bands and volume via BeamNG electrics values (-16 to 16). Manual control disabled when active.
+          </p>
+        </div>
+
+        <!-- Channel Gains -->
+        <div class="channel-gains">
+          <div class="channel-gain">
+            <label for="left-gain">Left Channel Gain</label>
+            <input type="range" id="left-gain" min="-16" max="16" value="0" step="0.1" />
+            <span class="gain-value">0 dB</span>
+          </div>
+          <div class="channel-gain">
+            <label for="right-gain">Right Channel Gain</label>
+            <input type="range" id="right-gain" min="-16" max="16" value="0" step="0.1" />
+            <span class="gain-value">0 dB</span>
+          </div>
+        </div>
+
+        <!-- Subwoofer Volume -->
+        <div class="channel-gains">
+          <div class="channel-gain">
+            <label for="subwoofer-volume-slider">Subwoofer Volume</label>
+            <input type="range" id="subwoofer-volume-slider" min="0" max="1" step="0.01" value="0.5" />
+            <span id="subwoofer-volume-value" class="gain-value">50%</span>
+          </div>
+          <div class="channel-gain">
+            <label for="subwoofer-min-freq-slider">Subwoofer Min Freq (Hz)</label>
+            <input type="range" id="subwoofer-min-freq-slider" min="10" max="250" step="5" value="20" />
+            <span id="subwoofer-min-freq-value" class="gain-value">20</span>
+          </div>
+          <div class="channel-gain">
+            <label for="subwoofer-max-freq-slider">Subwoofer Max Freq (Hz)</label>
+            <input type="range" id="subwoofer-max-freq-slider" min="10" max="250" step="5" value="90" />
+            <span id="subwoofer-max-freq-value" class="gain-value">90</span>
+          </div>
+          <div class="channel-gain">
+            <label for="tweeter-volume-slider">Tweeter Volume</label>
+            <input type="range" id="tweeter-volume-slider" min="0" max="1" step="0.01" value="0.25" />
+            <span id="tweeter-volume-value" class="gain-value">25%</span>
+          </div>
+          <div class="channel-gain">
+            <label for="tweeter-low-freq-slider">Tweeter Min Freq (Hz)</label>
+            <input type="range" id="tweeter-low-freq-slider" min="500" max="20000" step="100" value="2500" />
+            <span id="tweeter-low-freq-value" class="gain-value">2500</span>
+          </div>
+          <div class="channel-gain">
+            <label for="tweeter-high-freq-slider">Tweeter Max Freq (Hz)</label>
+            <input type="range" id="tweeter-high-freq-slider" min="500" max="20000" step="100" value="20000" />
+            <span id="tweeter-high-freq-value" class="gain-value">20000</span>
+          </div>
+          <div class="channel-gain">
+            <label for="rattle-volume-slider">Rattle Volume</label>
+            <input type="range" id="rattle-volume-slider" min="0" max="1" step="0.01" value="1.0" />
+            <span id="rattle-volume-value" class="gain-value">100%</span>
+          </div>
+          <div class="channel-gain">
+            <label for="rattle-threshold-slider">Rattle Kicks In Above</label>
+            <input type="range" id="rattle-threshold-slider" min="0" max="1" step="0.01" value="0.2" />
+            <span id="rattle-threshold-value" class="gain-value">20%</span>
+          </div>
+        </div>
+
+        <!-- Preset Manager -->
+        <div class="preset-manager">
+          <div class="preset-controls">
+            <input type="text" id="preset-name-input" class="preset-input" placeholder="New preset name..." />
+            <button id="save-preset" class="btn-primary">Save Preset</button>
+            <select id="preset-select" class="preset-select">
+              <option value="">Load Preset...</option>
+            </select>
+            <button id="load-preset" class="btn-secondary">Load</button>
+            <button id="delete-preset" class="btn-ghost">Delete</button>
+            <button id="upload-preset" class="btn-secondary" title="Upload to Discord">Upload</button>
+          </div>
+        </div>
+
+        <!-- EQ Bands -->
+        <div class="eq-container">
+          <div class="eq-bands">
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="0" min="-16" max="16" value="0" step="0.1" />
+              <label>60 Hz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="1" min="-20" max="20" value="0" step="0.1" />
+              <label>150 Hz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="2" min="-20" max="20" value="0" step="0.1" />
+              <label>300 Hz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="3" min="-20" max="20" value="0" step="0.1" />
+              <label>600 Hz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="4" min="-20" max="20" value="0" step="0.1" />
+              <label>1 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="5" min="-20" max="20" value="0" step="0.1" />
+              <label>2.4 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="6" min="-20" max="20" value="0" step="0.1" />
+              <label>4 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="7" min="-20" max="20" value="0" step="0.1" />
+              <label>6 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="8" min="-20" max="20" value="0" step="0.1" />
+              <label>8 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="9" min="-20" max="20" value="0" step="0.1" />
+              <label>10 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="10" min="-20" max="20" value="0" step="0.1" />
+              <label>12 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="11" min="-20" max="20" value="0" step="0.1" />
+              <label>14 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="12" min="-20" max="20" value="0" step="0.1" />
+              <label>16 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="13" min="-20" max="20" value="0" step="0.1" />
+              <label>18 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="14" min="-20" max="20" value="0" step="0.1" />
+              <label>20 kHz</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+            <div class="eq-band">
+              <input type="range" class="eq-slider" data-band="15" min="-20" max="20" value="0" step="0.1" />
+              <label>Volume</label>
+              <span class="eq-value">0 dB</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Panel -->
+      <section class="settings-section" id="settings-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Configuration</p>
+            <h2>Settings</h2>
+            <p>Configure audio devices, mods folder, and application preferences</p>
+          </div>
+          <div class="settings-actions">
+            <button id="reset-settings" class="btn-ghost">Reset</button>
+            <button id="save-settings" class="btn-primary">Save</button>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <!-- Audio Devices -->
+          <div class="settings-card">
+            <h3>Audio Devices</h3>
+            <p>Select input and output devices for audio capture</p>
+            <div class="settings-field">
+              <span>Input Device</span>
+              <select id="input-device">
+                <option value="">Select input device...</option>
+              </select>
+            </div>
+            <div class="settings-field">
+              <span>Output Device</span>
+              <select id="output-device">
+                <option value="">Select output device...</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- BeamNG Mods -->
+          <div class="settings-card">
+            <h3>BeamNG Mods</h3>
+            <p>Configure the BeamNG mods folder for audio visualizer mod</p>
+            <div class="settings-field">
+              <span>Mods Folder Path</span>
+              <div class="folder-picker">
+                <input type="text" id="beamng-mods-path" placeholder="Select mods folder..." readonly />
+                <button id="browse-beamng-mods" class="btn-secondary">Browse</button>
+              </div>
+            </div>
+            <button id="save-beamng-mods-folder" class="btn-primary save-btn-mt" aria-label="Save BeamNG mods folder path">Save Path</button>
+            <button id="check-mod-status" class="btn-secondary save-btn-mt" aria-label="Check mod installation status">Check Mod Status</button>
+          </div>
+
+          <!-- Discord Integration -->
+          <div class="settings-card">
+            <h3>Discord Integration</h3>
+            <p>Share EQ presets to Discord via webhook</p>
+            <div class="settings-field">
+              <span>Webhook URL</span>
+              <input type="text" id="discord-webhook-url" placeholder="Enter Discord webhook URL..." aria-label="Discord webhook URL" />
+            </div>
+            <button id="save-discord-webhook" class="btn-primary save-btn-mt" aria-label="Save Discord webhook URL">Save Webhook</button>
+          </div>
+
+          <!-- Theme Settings -->
+          <div class="settings-card">
+            <h3>Theme</h3>
+            <p>Customize the application appearance</p>
+            <div class="theme-color-picker">
+              <input type="color" id="theme-color-input" value="#58c2ff" />
+              <div class="theme-color-presets">
+                <button class="theme-preset" data-color="#58c2ff" title="Blue"></button>
+                <button class="theme-preset" data-color="#ff6b6b" title="Red"></button>
+                <button class="theme-preset" data-color="#4ecdc4" title="Teal"></button>
+                <button class="theme-preset" data-color="#f9d423" title="Yellow"></button>
+                <button class="theme-preset" data-color="#a8edea" title="Cyan"></button>
+                <button class="theme-preset" data-color="#d4fc79" title="Lime"></button>
+                <button class="theme-preset" data-color="#96e6a1" title="Green"></button>
+                <button class="theme-preset" data-color="#f093fb" title="Pink"></button>
+                <button class="theme-preset" data-color="#8e2de2" title="Purple"></button>
+                <button class="theme-preset" data-color="#fd746c" title="Coral"></button>
+              </div>
+              <button id="reset-theme-color" class="btn-ghost btn-small">Reset to Default</button>
+            </div>
+          </div>
+
+          <!-- Profile -->
+          <div class="settings-card">
+            <h3>Profile</h3>
+            <p>Update your display name</p>
+            <div class="settings-field">
+              <span>Display Name</span>
+              <input type="text" id="profile-name" placeholder="Enter your name..." />
+            </div>
+          </div>
+
+          <!-- Extra Applications -->
+          <div class="settings-card">
+            <h3>Extra Applications</h3>
+            <p>Add other apps to embed and stream, like Opera</p>
+            <ul id="extra-apps-list" class="extra-apps-list" aria-live="polite"></ul>
+            <button id="extra-app-add" class="btn-secondary" aria-label="Add application">+ Add Application</button>
+            <div id="extra-app-editor" class="extra-app-editor hidden">
+              <div class="settings-field">
+                <span>Exe Path</span>
+                <input type="text" id="extra-app-exe" placeholder="C:\Program Files\App\app.exe" aria-label="Application exe path" />
+              </div>
+              <div class="settings-field">
+                <span>Launch Arguments (optional)</span>
+                <input type="text" id="extra-app-args" placeholder='e.g. -windowed --path "C:\My Games\mod"' aria-label="Launch arguments" />
+              </div>
+              <div class="settings-field">
+                <span>MCP Forwarding</span>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="extra-app-mcp-enabled" aria-label="Enable MCP forwarding" />
+                  <span>Enable MCP Input Forwarding</span>
+                </label>
+              </div>
+              <div class="settings-field">
+                <span>MCP Host</span>
+                <input type="text" id="extra-app-mcp-host" placeholder="127.0.0.1" aria-label="MCP server host" />
+              </div>
+              <div class="settings-field">
+                <span>MCP Port</span>
+                <input type="number" id="extra-app-mcp-port" placeholder="29292" min="1" max="65535" aria-label="MCP server port" />
+              </div>
+              <div class="settings-field">
+                <span></span>
+                <button id="extra-app-mcp-test" class="btn-secondary btn-small">Test MCP Connection</button>
+              </div>
+              <div class="extra-app-editor-actions">
+                <button id="extra-app-save" class="btn-primary btn-small">Save</button>
+                <button id="extra-app-cancel" class="btn-ghost btn-small">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application Logs Panel -->
+      <section class="settings-section" id="log-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Diagnostics</p>
+            <h2>Application Logs</h2>
+            <p>View and export application logs for debugging</p>
+          </div>
+          <div class="settings-actions">
+            <button id="log-panel-clear" class="btn-ghost">Clear Logs</button>
+            <button id="log-panel-export" class="btn-secondary">Export Logs</button>
+          </div>
+        </div>
+        <div id="log-container" class="log-container">
+          <div class="log-empty-state">
+            <p>No logs yet. Logs will appear here as the application runs.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Session Stats Panel -->
+      <section class="settings-section" id="session-stats-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Statistics</p>
+            <h2>Session Stats</h2>
+            <p>Track your driving sessions, achievements, and lifetime statistics</p>
+          </div>
+        </div>
+
+        <!-- Live Session Card -->
+        <div class="session-live-card">
+          <div class="live-session-header">
+            <h3>
+              Live Session
+            </h3>
+            <div class="live-session-indicator">
+              <span class="live-dot"></span>
+              <span>Recording</span>
+            </div>
+          </div>
+          <div class="live-stats-grid">
+            <div class="live-stat-item">
+              <div class="live-stat-value" id="live-session-duration">0:00</div>
+              <div class="live-stat-label">Session Duration</div>
+            </div>
+            <div class="live-stat-item">
+              <div class="live-stat-value" id="live-session-distance">0.00 km</div>
+              <div class="live-stat-label">Distance This Session</div>
+            </div>
+            <div class="live-stat-item">
+              <div class="live-stat-value" id="live-session-crashes">0</div>
+              <div class="live-stat-label">Crashes This Session</div>
+            </div>
+            <div class="live-stat-item">
+              <div class="live-stat-value" id="live-session-top-speed">0.0 km/h</div>
+              <div class="live-stat-label">Top Speed This Session</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lifetime Stats Grid -->
+        <div class="lifetime-stats-section">
+          <h3>
+            Lifetime Statistics
+          </h3>
+          <div class="lifetime-stats-grid" id="lifetime-stats-grid">
+            <!-- Stat cards rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Session History / Log Viewer -->
+        <div class="session-history-section">
+          <h3>
+            Session History
+          </h3>
+          <div class="session-history-controls">
+            <select id="session-log-select" class="session-log-select">
+              <option value="">Select a session log...</option>
+            </select>
+            <button id="session-log-export" class="btn-secondary">Export Log</button>
+          </div>
+          <div id="session-log-viewer" class="session-log-viewer">
+            <div class="session-log-empty">Select a session log to view</div>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="session-reset-section">
+          <button id="session-reset-lifetime" class="session-reset-btn">
+            Reset Lifetime Statistics
+          </button>
+        </div>
+      </section>
+
+      <!-- Embedded Browser Panel (bottom section) -->
+      <section class="settings-section" id="browser-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Embedded</p>
+            <h2>Opera Browser</h2>
+            <p>Runs opera.exe inside the bottom section via Win32 reparenting. Click inside to control it directly.</p>
+          </div>
+          <div class="settings-actions">
+            <button id="opera-launch" class="btn-primary">Launch Opera</button>
+            <button id="opera-embed-app" class="btn-secondary" title="Dock the app launched from Extra Applications">Embed App</button>
+            <button id="opera-close" class="btn-ghost">Close</button>
+          </div>
+        </div>
+        <div class="settings-field" style="margin-bottom: 12px;">
+          <span>Opera exe path (blank = opera.exe from PATH)</span>
+          <input type="text" id="opera-exe-path" placeholder="C:\Program Files\Opera\opera.exe" aria-label="Opera exe path" />
+        </div>
+        <p id="opera-status" class="audio-capture-status">Not embedded</p>
+        <div id="embed-container">
+          <div id="embed-placeholder">Click Launch Opera — it will appear here.</div>
+        </div>
+      </section>
+
+      <!-- Opera Stream Panel (bottom section) -->
+      <section class="settings-section" id="stream-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Live Stream</p>
+            <h2>Opera Stream</h2>
+            <p>Streams <strong>only</strong> the Opera window above as JPEG frames over WebSocket — native window capture, unaffected by scrolling. Same protocol as window_streamer.</p>
+          </div>
+          <div class="settings-actions">
+            <button id="stream-start" class="btn-primary">Start Stream</button>
+            <button id="stream-stop" class="btn-ghost">Stop</button>
+          </div>
+        </div>
+        <div class="stream-controls">
+          <div class="settings-field">
+            <span>FPS (5-120)</span>
+            <input type="number" id="stream-fps" value="60" min="5" max="120" aria-label="Stream fps" />
+          </div>
+          <div class="settings-field">
+            <span>JPEG quality (10-95)</span>
+            <input type="number" id="stream-quality" value="70" min="10" max="95" aria-label="JPEG quality" />
+          </div>
+        </div>
+        <p id="stream-status" class="audio-capture-status">Stream stopped</p>
+        <div id="stream-preview-wrap">
+          <img id="stream-preview" alt="Stream preview — Start the stream to see the embedded Opera window here" />
+          <div id="stream-preview-placeholder">Start the stream — the embedded Opera window appears here.</div>
+        </div>
+      </section>
+
+      <!-- Amp / Sub / Box Telemetry Panel -->
+      <section class="settings-section" id="amp-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Telemetry</p>
+            <h2>Amp · Sub · Box</h2>
+            <p>Live amplifier, subwoofer and enclosure values received from the BeamNG mod (ampSimGE)</p>
+          </div>
+        </div>
+
+        <div class="amp-status" id="amp-status">
+          <span class="amp-status-dot" id="amp-status-dot"></span>
+          <span id="amp-status-text">Waiting for amp_state packets…</span>
+        </div>
+
+        <!-- Live dynamic values -->
+        <div class="amp-live-section">
+          <h3>Live</h3>
+          <div class="amp-live-grid" id="amp-live-grid"></div>
+        </div>
+
+        <!-- Config cards -->
+        <div class="amp-cards">
+          <div class="amp-card">
+            <h3>Amplifier</h3>
+            <div class="amp-grid" id="amp-card-amp"></div>
+          </div>
+          <div class="amp-card">
+            <h3>Subwoofer</h3>
+            <div class="amp-grid" id="amp-card-sub"></div>
+          </div>
+          <div class="amp-card">
+            <h3>Enclosure</h3>
+            <div class="amp-grid" id="amp-card-box"></div>
+          </div>
+        </div>
+
+        <!-- Manual overrides -->
+        <div class="amp-overrides-section">
+          <h3>
+            Overrides
+            <span class="amp-ovr-hint">— moving a control overrides the game value (sticky); ✕ reverts to live</span>
+            <button id="amp-ovr-clear" class="btn-ghost">Clear All Overrides</button>
+          </h3>
+          <div class="amp-ovr-grid" id="amp-ovr-grid"></div>
+        </div>
+      </section>
+
+      <!-- Create Server Modal -->
+    <div id="create-server-modal" class="modal-overlay modal-hidden">
+      <div class="modal-content" role="dialog" aria-labelledby="create-server-title" aria-modal="true">
+        <h2 id="create-server-title">Create Server</h2>
+        <input type="text" id="new-server-name" placeholder="Server name..." aria-label="Server name" />
+        <p class="modal-hint">Create a new server for your community</p>
+        <div class="modal-actions">
+          <button class="btn-cancel" id="create-server-cancel" aria-label="Cancel creating server">Cancel</button>
+          <button class="btn-confirm" id="create-server-confirm" aria-label="Create server">Create</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share EQ Preset Modal -->
+    <div id="share-eq-preset-modal" class="modal-overlay modal-hidden">
+      <div class="modal-content" role="dialog" aria-labelledby="share-preset-title" aria-modal="true">
+        <h2 id="share-preset-title">Share EQ Preset</h2>
+        <input type="text" id="eq-preset-name" placeholder="Preset name..." aria-label="EQ preset name" />
+        <p class="modal-hint">Share your current EQ settings to the chat</p>
+        <div class="modal-actions">
+          <button class="btn-cancel" id="share-eq-cancel" aria-label="Cancel sharing preset">Cancel</button>
+          <button class="btn-confirm" id="share-eq-confirm" aria-label="Share preset">Share</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice Call Modal -->
+    <div id="voice-call-modal" class="voice-call-modal modal-hidden">
+      <div class="voice-call-content" role="dialog" aria-labelledby="call-title" aria-modal="true">
+        <div class="voice-call-header">
+          <div class="voice-call-info">
+            <div class="voice-call-avatar" id="call-participant-avatar" aria-hidden="true">U</div>
+            <div class="voice-call-details">
+              <h3 id="call-title">Call with <span id="call-participant-name">User</span></h3>
+              <span class="call-status">Connected</span>
+            </div>
+          </div>
+          <button class="voice-call-close" id="voice-call-close" aria-label="End call">&times;</button>
+        </div>
+        <div class="voice-call-body">
+          <div class="voice-visualizer">
+            <canvas id="voice-visualizer-canvas"></canvas>
+          </div>
+          <div class="voice-call-timer" id="call-timer" aria-live="polite">00:00</div>
+        </div>
+        <div class="voice-call-controls">
+          <button class="voice-control-btn" id="voice-mute-btn" title="Mute" aria-label="Mute microphone">Mute</button>
+          <button class="voice-control-btn" id="voice-deafen-btn" title="Deafen" aria-label="Deafen">Deafen</button>
+          <button class="voice-control-btn voice-end-btn" id="voice-end-btn" title="End Call" aria-label="End call">End Call</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Incoming Call Modal -->
+    <div id="incoming-call-modal" class="incoming-call-modal modal-hidden">
+      <div class="incoming-call-content" role="alertdialog" aria-labelledby="incoming-call-title" aria-modal="true">
+        <div class="incoming-call-avatar" id="incoming-call-avatar" aria-hidden="true">U</div>
+        <h3 id="incoming-call-title"><span id="incoming-caller-name">User</span> is calling you...</h3>
+        <div class="incoming-call-actions">
+          <button class="call-action-btn call-decline" id="call-decline-btn" aria-label="Decline call">Decline</button>
+          <button class="call-action-btn call-accept" id="call-accept-btn" aria-label="Accept call">Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Files - Load in dependency order -->
+    <script src="js/utils.js"></script>
+    <script src="js/tauri-bridge.js"></script>
+    <script src="js/3d-audio.js"></script>
+    <script src="js/session-stats.js"></script>
+    <script src="js/amp-panel.js"></script>
+    <script src="js/opera-embed.js"></script>
+    <script src="js/opera-stream.js"></script>
+        <script src="js/extra-apps.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>
