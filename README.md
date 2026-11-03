@@ -1,5 +1,9 @@
 # BrokenBrainCells BeamNG 3D Audio Simulation
 
+
+Special shout out to Brody on DC. Cry Harder Bro.
+
+
 A Tauri 2 desktop app (Rust backend + vanilla JS frontend) for **real-time 3D spatial audio processing and visualization**, driven by live BeamNG.drive UDP telemetry.
 
 It captures PC audio, runs it through a 16-band EQ → 3D spatializer → peak limiter DSP chain on a max-priority audio thread, positions 6 virtual speakers from BeamNG vehicle/camera data, visualizes everything live in the UI, and can embed + stream an Opera/Chrome window into the app and out to BeamNG mods.
